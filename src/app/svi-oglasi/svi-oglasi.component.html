@@ -1,0 +1,22 @@
+<div *ngFor="let ad of ads" class="card text-center mx-auto mt-5 relative">
+  <div *ngIf="auth.isAdmin()" class="abs-top-right">
+    <a (click)="deleteAd(ad)" class="btn btn-danger white">
+      Obrisi
+    </a>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ ad.title }}</h5>
+    <p class="card-text">{{ ad.description }}</p>
+    <div class="mx-auto text-center"><a href="#" class="btn btn-primary">Prijava</a></div>
+  </div>
+  <div class="card-footer text-muted">
+    <div class="row">
+      <div class="col-6">
+        {{ ad.created_at | date }}
+      </div>
+      <div class="col-6">
+        {{ ad.user.name }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container">
+      <a class="navbar-brand" href="#">
+          <img id="logo" width="50%" src="./assets/images/logoPayvor.png" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" routerLink="home" href="#"> Pocetna 
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="aboutus" href="#"> O nama </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="svi-oglasi" href="#"> Svi oglasi </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="kontakt" href="#"> Kontakt </a>
+              </li>
+              <li class="flex-center">
+                  <div *ngIf="isAuthenticated; else loginRegisterTemplate" class="auth-links flex-center-col">
+                        <a *ngIf="!auth.isAdmin()" routerLink="profil" class="pointer">Moj Profil</a>
+                        <a (click)="auth.logout()" class="pointer">Logout</a>
+                  </div>
+                  <ng-template #loginRegisterTemplate>
+                    <div class="auth-links flex-center-col">
+                        <a routerLink="login" href="#"> Login </a>
+                        <a routerLink="registracija" href="#"> Registracija </a>
+                    </div>
+                  </ng-template>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
